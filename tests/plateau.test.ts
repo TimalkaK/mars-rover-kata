@@ -1,9 +1,9 @@
-import { add } from "../src/rover/rover";
+import { upperRight } from "../src/plateau/plateau";
 
-describe("test add function", () => {
-  it("should return 15 for add(10,5)", () => {
-    expect(add(10, 5)).toBe(15);
-  }); it("should return 5 for add(2,3)", () => {
-    expect(add(2, 3)).toBe(5);
+describe("test upperRight function", () => {
+  it("should return max co-ordinate true for upperRight(5,5)", () => {
+    expect(upperRight(5, 5)).toBe(true);
+  }); it("should return false for upperRight(2,3)", () => {
+    expect(upperRight(2, 3)).toBe(false);
   });
 });
