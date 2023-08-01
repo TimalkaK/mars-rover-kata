@@ -5,7 +5,7 @@ const lowerRightCoord: Grid = {x:0, y:5};
 const maxCoord: Grid = {x:5,y:5};
 
 
-export function checkPlateauPerimeter(x: number, y: number): string | false{
+export function checkPlateauPerimeter(x: number, y: number): string | undefined {
   if (x === maxCoord.x && y === maxCoord.y){
     return "5,5";
   }else if (x === upperLeftCoord.x && y === upperLeftCoord.y){
@@ -14,8 +14,10 @@ export function checkPlateauPerimeter(x: number, y: number): string | false{
     return "0,5";
   }else if (x === minCoord.x && y === minCoord.y){
     return "0,0";
+  }else if (x < 0 || x > 5 || y < 0 || y > 5){
+    return "Out of the Plateau Perimeter";
   }else{
-    return "Out of Plateau Perimeter"
+    return `Co-ordinates ${x},${y} are within the Plateau`
   }
 }
 
