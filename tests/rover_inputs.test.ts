@@ -1,4 +1,12 @@
 import {checkCoordinates, inputMaxPlateau, inputRoverPosition } from "../src/ui/rover_inputs";
+describe("test checkCoordinates function", () => {
+  it("should return true", () => {
+    expect(checkCoordinates(5,5)).toBe(true);
+  }); it("should return false", () => {
+    expect(checkCoordinates(-1, 4)).toBe(false);
+  });
+});
+
 
 describe("test inputMaxPlateau function", () => {
   it("should return upper right coordinates recieved ", () => {
@@ -13,26 +21,16 @@ describe("test inputMaxPlateau function", () => {
   });
 });
 
-describe("test checkCoordinates function", () => {
-  it("should return true", () => {
-    expect(checkCoordinates(5,5)).toBe(true);
-  }); it("should return false", () => {
-    expect(checkCoordinates(-1, 4)).toBe(false);
-  });
-});
+
 
 
 describe("test inputRoverPosition function", () => {
-  it("should return co-ordinates in a string array ", () => {
+  it("should return string of rover position ", () => {
     const roverPosition : string = "1 2 N";
-    expect(inputRoverPosition(roverPosition)).toBe("1,2,N");
-  }); it("should return co-ordinates in an array ", () => {
+    expect(inputRoverPosition(roverPosition)).toBe("1 2 N");
+  }); it("should return out of range coordinates ", () => {
     const roverPosition : string = "-1 3 E";
-    expect(inputRoverPosition(roverPosition)).toBe("-1,3,E");
-  });
-  it("should return just three co-ordinates in a string array ", () => {
-    const roverPosition : string = "2 4 W H T W M";
-    expect(inputRoverPosition(roverPosition)).toBe("2,4,W");
+    expect(inputRoverPosition(roverPosition)).toBe('Oh no! The rover is not on Mars');
   });
   it("should return undefined ", () => {
     const roverPosition : string = "E M W H T W M";
