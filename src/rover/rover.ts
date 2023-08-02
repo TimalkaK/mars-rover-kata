@@ -12,22 +12,26 @@ export function checkRoverPostion(coordX: number, coordY: number , o: Direction)
 
 type Instruction = "L" | "R" | "M";
 
-// function to rotate rover
 export function rotateRover(instruction : Instruction): string | undefined{
-//  if(instruction === "L"){
-//   return "Rotate left";
-//  }else if (instruction === "R"){
-//   return "Rotate right";
-
-//  }else{
-//   return "Not a rotation instruction";
-//  }
-
  switch (instruction){
-  case "L": return "Rotate left";
-  case "R": return "Rotate right";
-  case "M": return "Not a rotation instruction";
-
+  case "L": {
+    switch(rover1.orientation){
+      case "N": rover1.orientation = "E"; return `${rover1.x} ${rover1.y} ${rover1.orientation}`;
+      case "E": rover1.orientation = "S"; return `${rover1.x} ${rover1.y} ${rover1.orientation}`;
+      case "S": rover1.orientation = "W"; return `${rover1.x} ${rover1.y} ${rover1.orientation}`;
+      case "W": rover1.orientation = "N"; return `${rover1.x} ${rover1.y} ${rover1.orientation}`;
+    }
+  }
+  case "R": {
+    switch(rover1.orientation){
+      case "N": rover1.orientation = "W"; return `${rover1.x} ${rover1.y} ${rover1.orientation}`;
+      case "E": rover1.orientation = "N"; return `${rover1.x} ${rover1.y} ${rover1.orientation}`;
+      case "S": rover1.orientation = "E"; return `${rover1.x} ${rover1.y} ${rover1.orientation}`;
+      case "W": rover1.orientation = "S"; return `${rover1.x} ${rover1.y} ${rover1.orientation}`;
+    }
+  }
+  case "M": 
+    return "Not a rotation instruction";
  }
 }
 
