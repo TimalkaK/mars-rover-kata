@@ -10,9 +10,11 @@ describe("test checkRoverPostion function", () => {
 
 
 describe("test rotateRover function", () => {
-  it("should return  ", () => {
+  it("should identify M is not a rotation instruction ", () => {
     expect(rotateRover("M")).toBe("Not a rotation instruction");
-  }); it("should return co-ordinates ", () => {
-    expect(rotateRover("R")).toBe("Not a rotation instruction");
+  }); it("should identify R means rotate right ", () => {
+    expect(rotateRover("R")).toBe("Rotate right");
+  }); it("should identify L means rotate left ", () => {
+    expect(rotateRover("L")).toBe("Rotate left");
   });
 });

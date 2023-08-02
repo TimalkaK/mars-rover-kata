@@ -13,10 +13,26 @@ export function checkRoverPostion(coordX: number, coordY: number , o: Direction)
 type Instruction = "L" | "R" | "M";
 
 // function to rotate rover
-export function rotateRover(instruction : Instruction): string{
+export function rotateRover(instruction : Instruction): string | undefined{
+//  if(instruction === "L"){
+//   return "Rotate left";
+//  }else if (instruction === "R"){
+//   return "Rotate right";
 
-  return "Blah";
+//  }else{
+//   return "Not a rotation instruction";
+//  }
 
+ switch (instruction){
+  case "L": return "Rotate left";
+  case "R": return "Rotate right";
+  case "M": return "Not a rotation instruction";
+
+ }
 }
+
+ 
+
+
 
 // function to move rover 
