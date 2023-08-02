@@ -13,7 +13,7 @@ export function checkRoverIsOnMars(rover:Rover): string{
   if(checkPlateauPerimeter(rover.x, rover.y) === "Out of the Plateau Perimeter"){
     return "Oh no! The rover is not on Mars";
   }else{
-    return "Don't worry, The rover is safely on Mars";
+    return "Don't worry! The rover is safely on Mars";
   }
 }
 
