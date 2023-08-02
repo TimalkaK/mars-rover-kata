@@ -1,4 +1,4 @@
-import { Rover, moveRover, rotateRover,checkRoverPostion } from "../src/rover/rover";
+import {checkRoverIsOnMars, Rover, moveRover, rotateRover,checkRoverPostion } from "../src/rover/rover";
 
 describe("test checkRoverPostion function", () => {
   it("should return co-ordinates ", () => {
@@ -7,6 +7,31 @@ describe("test checkRoverPostion function", () => {
   }); it("should return co-ordinates ", () => {
     const rover : Rover = {x:1, y:2, orientation:"E"};
     expect(checkRoverPostion(rover)).toBe("1 2 E");
+  });
+});
+
+describe("test checkRoverIsOnMars function", () => {
+  it("should return rover is not on mars", () => {
+    const rover : Rover = {x:-1, y:4, orientation:"N"};
+    expect(checkRoverIsOnMars(rover)).toBe("Oh no! The rover is not on Mars");
+  }); it("should return rover is not on mars", () => {
+    const rover : Rover = {x:-1, y:-5, orientation:"N"};
+    expect(checkRoverIsOnMars(rover)).toBe("Oh no! The rover is not on Mars");
+  }); it("should return rover is not on mars", () => {
+    const rover : Rover = {x:3, y:-1, orientation:"N"};
+    expect(checkRoverIsOnMars(rover)).toBe("Oh no! The rover is not on Mars");
+  }); it("should return rover is on mars", () => {
+    const rover : Rover = {x:1, y:2, orientation:"E"};
+    expect(checkRoverIsOnMars(rover)).toBe("Don't worry, The rover is safely on Mars");
+  }); it("should return rover is on mars", () => {
+    const rover : Rover = {x:5, y:5, orientation:"E"};
+    expect(checkRoverIsOnMars(rover)).toBe("Don't worry, The rover is safely on Mars");
+  }); it("should return rover is on mars", () => {
+    const rover : Rover = {x:4, y:2, orientation:"E"};
+    expect(checkRoverIsOnMars(rover)).toBe("Don't worry, The rover is safely on Mars");
+  }); it("should return rover is on mars", () => {
+    const rover : Rover = {x:0, y:0, orientation:"E"};
+    expect(checkRoverIsOnMars(rover)).toBe("Don't worry, The rover is safely on Mars");
   });
 });
 

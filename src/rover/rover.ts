@@ -1,13 +1,21 @@
+import { checkPlateauPerimeter } from "../plateau/plateau";
+
 type Direction = "N" | "E" | "S" | "W";
+type Instruction = "L" | "R" | "M";
 export type Rover = {x: number, y: number, orientation: Direction};
 
 
 export function checkRoverPostion(rover: Rover): string {
-
   return `${rover.x} ${rover.y} ${rover.orientation}`;
 }
 
-type Instruction = "L" | "R" | "M";
+export function checkRoverIsOnMars(rover:Rover): string{
+  if(checkPlateauPerimeter(rover.x, rover.y) === "Out of the Plateau Perimeter"){
+    return "Oh no! The rover is not on Mars";
+  }else{
+    return "Don't worry, The rover is safely on Mars";
+  }
+}
 
 export function rotateRover(rover: Rover, instruction : Instruction): string | undefined{
  switch (instruction){
