@@ -45,11 +45,11 @@ describe("test inputInstructions function", () => {
   it("should return string of rover position with different orientation", () => {
     const instructions : string = "L";
     const rover : Rover = {x:1, y:2, orientation:"E"};
-    expect(inputInstructions(rover,instructions)).toBe("1 2 S");
+    expect(inputInstructions(rover,instructions)).toBe("1 2 N");
   }); it("should return string of rover position with different orientation", () => {
     const instructions : string = "R";
     const rover : Rover = {x:5, y:5, orientation:"E"};
-    expect(inputInstructions(rover, instructions)).toBe("5 5 N");
+    expect(inputInstructions(rover, instructions)).toBe("5 5 S");
   });it("should string of rover position moved to the right", () => {
     const instructions : string = "M";
     const rover : Rover = {x:2, y:2, orientation:"E"};
@@ -58,6 +58,26 @@ describe("test inputInstructions function", () => {
     const instructions : string = "W";
     const rover : Rover = {x:2, y:2, orientation:"E"};
     expect(inputInstructions(rover, instructions)).toBe("Incorrect instruction found");
+  });
+  it("should return position after performing two instructions", () => {
+    const instructions : string = "RM";
+    const rover : Rover = {x:1, y:4, orientation:"S"};
+    expect(inputInstructions(rover, instructions)).toBe("0 4 W");
+  });
+  it("should return position after performing four instructions", () => {
+    const instructions : string = "LMLM";
+    const rover : Rover = {x:2, y:2, orientation:"N"};
+    expect(inputInstructions(rover, instructions)).toBe("1 1 S");
+  });
+  it("should return position after performing multiple instructions", () => {
+    const instructions : string = "LMLMLMLMM";
+    const rover : Rover = {x:1, y:2, orientation:"N"};
+    expect(inputInstructions(rover, instructions)).toBe("1 3 N");
+  });
+  it("should return position after performing multiple instructions", () => {
+    const instructions : string = "MMRMMRMRRM";
+    const rover : Rover = {x:3, y:3, orientation:"E"};
+    expect(inputInstructions(rover, instructions)).toBe("5 1 E");
   });
 
 });

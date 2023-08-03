@@ -21,18 +21,18 @@ export function rotateRover(rover: Rover, instruction : Instruction): string {
  switch (instruction){
   case "L": {
     switch(rover.orientation){
-      case "N": rover.orientation = "E"; return `${rover.x} ${rover.y} ${rover.orientation}`;
-      case "E": rover.orientation = "S"; return `${rover.x} ${rover.y} ${rover.orientation}`;
-      case "S": rover.orientation = "W"; return `${rover.x} ${rover.y} ${rover.orientation}`;
-      case "W": rover.orientation = "N"; return `${rover.x} ${rover.y} ${rover.orientation}`;
-    }
-  }
-  case "R": {
-    switch(rover.orientation){
       case "N": rover.orientation = "W"; return `${rover.x} ${rover.y} ${rover.orientation}`;
       case "E": rover.orientation = "N"; return `${rover.x} ${rover.y} ${rover.orientation}`;
       case "S": rover.orientation = "E"; return `${rover.x} ${rover.y} ${rover.orientation}`;
       case "W": rover.orientation = "S"; return `${rover.x} ${rover.y} ${rover.orientation}`;
+    }
+  }
+  case "R": {
+    switch(rover.orientation){
+      case "N": rover.orientation = "E"; return `${rover.x} ${rover.y} ${rover.orientation}`;
+      case "E": rover.orientation = "S"; return `${rover.x} ${rover.y} ${rover.orientation}`;
+      case "S": rover.orientation = "W"; return `${rover.x} ${rover.y} ${rover.orientation}`;
+      case "W": rover.orientation = "N"; return `${rover.x} ${rover.y} ${rover.orientation}`;
     }
   }
   case "M": 
