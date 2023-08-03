@@ -1,7 +1,7 @@
 import { isInPlateauPerimeter } from "../plateau/plateau";
 
 export type Direction = "N" | "E" | "S" | "W";
-type Instruction = "L" | "R" | "M";
+export type Instruction = "L" | "R" | "M";
 export type Rover = {x: number, y: number, orientation: Direction};
 
 

@@ -1,4 +1,5 @@
-import {checkCoordinates, inputMaxPlateau, inputRoverPosition } from "../src/ui/rover_inputs";
+import {inputInstructions, checkCoordinates, inputMaxPlateau, inputRoverPosition} from "../src/ui/rover_inputs";
+
 describe("test checkCoordinates function", () => {
   it("should return true", () => {
     expect(checkCoordinates(5,5)).toBe(true);
@@ -21,9 +22,6 @@ describe("test inputMaxPlateau function", () => {
   });
 });
 
-
-
-
 describe("test inputRoverPosition function", () => {
   it("should return string of rover position ", () => {
     const roverPosition : string = "1 2 N";
@@ -35,5 +33,15 @@ describe("test inputRoverPosition function", () => {
   it("should return undefined ", () => {
     const roverPosition : string = "E M W H T W M";
     expect(inputMaxPlateau(roverPosition)).toBe(undefined);
+  });
+});
+
+describe("test inputInstructions function", () => {
+  it("should return string of rover position ", () => {
+    const instructions : string = "LM ";
+    expect(inputInstructions(instructions)).toBe("0 2 E");
+  }); it("should return out of range coordinates ", () => {
+    const instructions : string = "RM";
+    expect(inputInstructions(instructions)).toBe("1 3 N");
   });
 });
