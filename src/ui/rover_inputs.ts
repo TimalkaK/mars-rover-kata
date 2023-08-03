@@ -47,8 +47,8 @@ export function inputInstructions(rover: Rover, input: string): string {
       return "Incorrect instruction found";
     }
   }
-
-  return checkRoverPostion(rover);
+  
+  return updateRoverPosition(rover);
 }
 
 
