@@ -1,12 +1,12 @@
-import {checkRoverIsOnMars, Rover, moveRover, rotateRover,checkRoverPostion } from "../src/rover/rover";
+import {checkRoverIsOnMars, Rover, moveRover, rotateRover,checkRoverPosition } from "../src/rover/rover";
 
-describe("test checkRoverPostion function", () => {
+describe("test checkRoverPosition function", () => {
   it("should return co-ordinates ", () => {
     const rover : Rover = {x:0, y:0, orientation:"N"};
-    expect(checkRoverPostion(rover)).toBe("0 0 N");
+    expect(checkRoverPosition(rover)).toBe("0 0 N");
   }); it("should return co-ordinates ", () => {
     const rover : Rover = {x:1, y:2, orientation:"E"};
-    expect(checkRoverPostion(rover)).toBe("1 2 E");
+    expect(checkRoverPosition(rover)).toBe("1 2 E");
   });
 });
 

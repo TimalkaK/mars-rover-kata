@@ -5,7 +5,7 @@ export type Instruction = "L" | "R" | "M";
 export type Rover = {x: number, y: number, orientation: Direction};
 
 
-export function checkRoverPostion(rover: Rover): string {
+export function checkRoverPosition(rover: Rover): string {
   return `${rover.x} ${rover.y} ${rover.orientation}`;
 }
 

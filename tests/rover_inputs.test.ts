@@ -81,5 +81,8 @@ describe("test updateRoverPosition function", () => {
   }); it("should return undefined", () => {
     const rover : Rover = {x:-6, y:3, orientation:"E"};
     expect(updateRoverPosition(rover)).toBe("Oh no! The rover is not on Mars");
+  });it("should return undefined", () => {
+    const rover : Rover = {x:-6, y:3, orientation:"E"};
+    expect(updateRoverPosition(rover)).toBe("Oh no! The rover is not on Mars");
   });
 });

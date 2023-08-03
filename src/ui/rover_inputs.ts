@@ -1,5 +1,5 @@
 import { isInPlateauPerimeter } from "../plateau/plateau";
-import { Rover, Direction, Instruction, checkRoverPostion, rotateRover, moveRover, checkRoverIsOnMars } from "../rover/rover";
+import { Rover, Direction, Instruction, checkRoverPosition, rotateRover, moveRover, checkRoverIsOnMars } from "../rover/rover";
 
 export function inputMaxPlateau(input: string){
   let [x, y] = input.split(" ", 2);
@@ -54,7 +54,7 @@ export function inputInstructions(rover: Rover, input: string): string {
 
 export function updateRoverPosition(rover: Rover): string {
   if (checkRoverIsOnMars(rover) === "Don't worry! The rover is safely on Mars"){
-    return checkRoverPostion(rover);
+    return checkRoverPosition(rover);
   }else{
     return checkRoverIsOnMars(rover);
   }
