@@ -1,14 +1,5 @@
-import {inputInstructions, inputMaxPlateau, inputRoverPosition} from "../src/ui/rover_inputs";
+import {inputInstructions, inputMaxPlateau, inputRoverPosition, updateRoverPosition} from "../src/ui/rover_inputs";
 import {Rover} from "../src/rover/rover";
-
-// describe("test checkCoordinates function", () => {
-//   it("should return true", () => {
-//     expect(checkCoordinates(5,5)).toBe(true);
-//   }); it("should return false", () => {
-//     expect(checkCoordinates(-1, 4)).toBe(false);
-//   });
-// });
-
 
 describe("test inputMaxPlateau function", () => {
   it("should return upper right coordinates recieved ", () => {
@@ -80,4 +71,15 @@ describe("test inputInstructions function", () => {
     expect(inputInstructions(rover, instructions)).toBe("5 1 E");
   });
 
+});
+
+
+describe("test updateRoverPosition function", () => {
+  it("should return the same rover position ", () => {
+    const rover : Rover = {x:3, y:3, orientation:"E"};
+    expect(updateRoverPosition(rover)).toBe("3 3 E");
+  }); it("should return undefined", () => {
+    const rover : Rover = {x:-6, y:3, orientation:"E"};
+    expect(updateRoverPosition(rover)).toBe("Oh no! The rover is not on Mars");
+  });
 });
