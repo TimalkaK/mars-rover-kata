@@ -41,7 +41,7 @@ describe("test inputInstructions function", () => {
   it("should return 0", () => {
     const instructions : string = "";
     const rover : Rover = {x:1, y:2, orientation:"E"};
-    expect(inputInstructions(rover,instructions)).toBe(0);});
+    expect(inputInstructions(rover,instructions)).toBe("Empty instructions");});
   it("should return string of rover position with different orientation", () => {
     const instructions : string = "L";
     const rover : Rover = {x:1, y:2, orientation:"E"};
@@ -54,10 +54,10 @@ describe("test inputInstructions function", () => {
     const instructions : string = "M";
     const rover : Rover = {x:2, y:2, orientation:"E"};
     expect(inputInstructions(rover, instructions)).toBe("3 2 E");
-  }); it("should return undefined", () => {
+  }); it("should return incorrect instructions found", () => {
     const instructions : string = "W";
     const rover : Rover = {x:2, y:2, orientation:"E"};
-    expect(inputInstructions(rover, instructions)).toBe(undefined);
+    expect(inputInstructions(rover, instructions)).toBe("Incorrect instruction found");
   });
 
 });

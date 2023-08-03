@@ -39,6 +39,7 @@
   if (isInPlateauPerimeter(coordX, coordY) === true){
     let rover : Rover = {x: coordX, y: coordY, orientation: direction};
     roverPosition = checkRoverPostion(rover);
+    //inputInstructions function
   }else{
     return 'Oh no! The rover is not on Mars';
   }
@@ -53,16 +54,13 @@
  // make sure initial rover position is correct
  // issue with global variable 
 
- export function inputInstructions(rover: Rover, input: string): string | 0 | undefined{
-
-  let roverPosition = "";
-
+ export function inputInstructions(rover: Rover, input: string): string {
   let instructions = input.split('');
   if (instructions.length === 0){
-    return 0;
+    return "Empty instructions";
   }
 
-  instructions.forEach((instruction) => {
+  for (const instruction of instructions) {
     if(instruction === "L"){
       let rotateLeft = rotateRover(rover,"L");
       //console.log(rotateLeft);
@@ -71,21 +69,26 @@
       let rotateRight = rotateRover(rover, "R");
       //console.log(rotateRight);
     }else if (instruction === "M"){
-      let move = moveRover(rover, "M");
+      let move = moveRover(rover, "M");;
       //console.log(move);
     }else{
-      return undefined;
+      return "Incorrect instruction found";
     }
+  }
 
-    if (checkRoverIsOnMars(rover) === "Don't worry! The rover is safely on Mars"){
-      roverPosition = checkRoverPostion(rover);
-      console.log(roverPosition);
-    }else{
-      //console.log("Rover is not on Mars");
-      return "Rover is not on Mars";
-    }
-    return roverPosition;
+  console.log(checkRoverPostion(rover));
+  return checkRoverPostion(rover);
+}
+
+// updateRoverPosition function
+// let roverPosition = "";
+    // if (checkRoverIsOnMars(rover) === "Don't worry! The rover is safely on Mars"){
+    //   roverPosition = checkRoverPostion(rover);
+    //   console.log(roverPosition);
+    // }else{
+    //   //console.log("Rover is not on Mars");
+    //   return "Rover is not on Mars";
+    // }
+    // return roverPosition;
     
-   
-  })
- }
+  
