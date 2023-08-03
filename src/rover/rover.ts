@@ -17,7 +17,7 @@ export function checkRoverIsOnMars(rover:Rover): string{
   }
 }
 
-export function rotateRover(rover: Rover, instruction : Instruction): string | undefined{
+export function rotateRover(rover: Rover, instruction : Instruction): string {
  switch (instruction){
   case "L": {
     switch(rover.orientation){

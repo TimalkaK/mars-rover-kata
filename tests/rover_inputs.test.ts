@@ -1,12 +1,13 @@
-import {inputInstructions, checkCoordinates, inputMaxPlateau, inputRoverPosition} from "../src/ui/rover_inputs";
+import {inputInstructions, inputMaxPlateau, inputRoverPosition} from "../src/ui/rover_inputs";
+import {Rover} from "../src/rover/rover";
 
-describe("test checkCoordinates function", () => {
-  it("should return true", () => {
-    expect(checkCoordinates(5,5)).toBe(true);
-  }); it("should return false", () => {
-    expect(checkCoordinates(-1, 4)).toBe(false);
-  });
-});
+// describe("test checkCoordinates function", () => {
+//   it("should return true", () => {
+//     expect(checkCoordinates(5,5)).toBe(true);
+//   }); it("should return false", () => {
+//     expect(checkCoordinates(-1, 4)).toBe(false);
+//   });
+// });
 
 
 describe("test inputMaxPlateau function", () => {
@@ -37,11 +38,26 @@ describe("test inputRoverPosition function", () => {
 });
 
 describe("test inputInstructions function", () => {
-  it("should return string of rover position ", () => {
-    const instructions : string = "LM ";
-    expect(inputInstructions(instructions)).toBe("0 2 E");
-  }); it("should return out of range coordinates ", () => {
-    const instructions : string = "RM";
-    expect(inputInstructions(instructions)).toBe("1 3 N");
+  it("should return 0", () => {
+    const instructions : string = "";
+    const rover : Rover = {x:1, y:2, orientation:"E"};
+    expect(inputInstructions(rover,instructions)).toBe(0);});
+  it("should return string of rover position with different orientation", () => {
+    const instructions : string = "L";
+    const rover : Rover = {x:1, y:2, orientation:"E"};
+    expect(inputInstructions(rover,instructions)).toBe("1 2 S");
+  }); it("should return string of rover position with different orientation", () => {
+    const instructions : string = "R";
+    const rover : Rover = {x:5, y:5, orientation:"E"};
+    expect(inputInstructions(rover, instructions)).toBe("5 5 N");
+  });it("should string of rover position moved to the right", () => {
+    const instructions : string = "M";
+    const rover : Rover = {x:2, y:2, orientation:"E"};
+    expect(inputInstructions(rover, instructions)).toBe("3 2 E");
+  }); it("should return undefined", () => {
+    const instructions : string = "W";
+    const rover : Rover = {x:2, y:2, orientation:"E"};
+    expect(inputInstructions(rover, instructions)).toBe(undefined);
   });
+
 });

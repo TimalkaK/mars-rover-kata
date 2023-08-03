@@ -1,8 +1,8 @@
-type Grid = { x: number, y: number };
-const minCoord: Grid = {x:0, y:0};
-const upperLeftCoord: Grid = {x:5, y:0};
-const lowerRightCoord: Grid = {x:0, y:5};
-const maxCoord: Grid = {x:5,y:5};
+// type Grid = { x: number, y: number };
+// const minCoord: Grid = {x:0, y:0};
+// const upperLeftCoord: Grid = {x:5, y:0};
+// const lowerRightCoord: Grid = {x:0, y:5};
+// const maxCoord: Grid = {x:5,y:5};
 
 
 // export function checkPlateauPerimeter(x: number, y: number): string | undefined {
